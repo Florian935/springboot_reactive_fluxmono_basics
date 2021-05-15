@@ -1,5 +1,6 @@
 package com.florian935.basicsfluxmono;
 
+import com.florian935.basicsfluxmono.doOn.DoOnComplete;
 import com.florian935.basicsfluxmono.doOn.DoOnError;
 import com.florian935.basicsfluxmono.doOn.DoOnNext;
 import com.florian935.basicsfluxmono.source.FluxGenerator;
@@ -20,6 +21,7 @@ public class FluxmonoApplication {
 	private final FluxHandle fluxHandle;
 	private final DoOnNext doOnNext;
 	private final DoOnError doOnError;
+	private final DoOnComplete doOnComplete;
 
 	public static void main(String[] args) {
 		SpringApplication.run(FluxmonoApplication.class, args);
@@ -27,7 +29,7 @@ public class FluxmonoApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void init() {
-		doOnError.doOnError();
+		doOnComplete.doOnComplete();
 	}
 
 
