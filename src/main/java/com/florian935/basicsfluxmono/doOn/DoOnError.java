@@ -6,7 +6,6 @@ import reactor.core.publisher.Flux;
 /**
  * @author florian935
  */
-@Component
 public class DoOnError {
 
     public void doOnError() {

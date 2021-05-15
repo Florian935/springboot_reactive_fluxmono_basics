@@ -6,7 +6,6 @@ import reactor.core.publisher.Flux;
 /**
  * @author florian935
  */
-@Configuration
 public class DoOnNext {
 
     public void doOnNext() {

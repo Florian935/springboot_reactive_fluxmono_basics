@@ -10,7 +10,6 @@ import static java.time.Duration.ofMillis;
 /**
  * @author florian935
  */
-@Component
 public class FluxGenerator {
     final Random random = new Random();
 

@@ -3,7 +3,9 @@ package com.florian935.basicsfluxmono;
 import com.florian935.basicsfluxmono.doOn.DoOnComplete;
 import com.florian935.basicsfluxmono.doOn.DoOnError;
 import com.florian935.basicsfluxmono.doOn.DoOnNext;
+import com.florian935.basicsfluxmono.doOn.DoOnWrapper;
 import com.florian935.basicsfluxmono.source.FluxGenerator;
+import com.florian935.basicsfluxmono.source.SourceWrapper;
 import com.florian935.basicsfluxmono.transform.FluxHandle;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
@@ -17,11 +19,9 @@ import org.springframework.context.event.EventListener;
 @SpringBootApplication
 @RequiredArgsConstructor
 public class FluxmonoApplication {
-	private final FluxGenerator fluxGenerator;
+	private final SourceWrapper sourceWrapper;
 	private final FluxHandle fluxHandle;
-	private final DoOnNext doOnNext;
-	private final DoOnError doOnError;
-	private final DoOnComplete doOnComplete;
+	private final DoOnWrapper doOnWrapper;
 
 	public static void main(String[] args) {
 		SpringApplication.run(FluxmonoApplication.class, args);
@@ -29,7 +29,7 @@ public class FluxmonoApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void init() {
-		doOnComplete.doOnComplete();
+		sourceWrapper.fluxGenerator().generator();
 	}
 
 
