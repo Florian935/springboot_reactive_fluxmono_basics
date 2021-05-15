@@ -1,17 +1,20 @@
 package com.florian935.basicsfluxmono.source;
 
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 
 import java.util.Random;
 
 import static java.time.Duration.ofMillis;
 
-@Configuration
+/**
+ * @author florian935
+ */
+@Component
 public class FluxGenerator {
     final Random random = new Random();
 
-    public void basicGenerator() {
+    public void generator() {
         final Flux<Integer> generator = Flux.<Integer>generate(sink -> sink.next(random.nextInt(10)))
                 .delayElements(ofMillis(1_000))
                 .doOnNext(randomNumber -> System.out.println("From Publisher ## " + randomNumber));
@@ -20,14 +23,14 @@ public class FluxGenerator {
         generator.subscribe(randomNumber -> System.out.println("From Subscriber ## " + randomNumber));
     }
 
-    public void basicGeneratorWithError() {
+    public void generatorWithError() {
         final Flux<Integer> generator = Flux
                 .<Integer>generate(sink -> {
                     final int randomNumber = random.nextInt(10);
                     if (randomNumber != 5) {
                         sink.next(randomNumber);
                     } else {
-                        sink.error(new Exception("HOOPS"));
+                        sink.error(new Exception("HOOPS ERROR!"));
                     }
                 })
                 .delayElements(ofMillis(1_000))
@@ -43,14 +46,14 @@ public class FluxGenerator {
         );
     }
 
-    public void basicGeneratorCompleteOrError() {
+    public void generatorCompleteOrError() {
         final Flux<Integer> generator = Flux
                 .<Integer>generate(sink -> {
                     final int randomNumber = random.nextInt(10);
                     if (randomNumber == 4) {
                         sink.complete();
                     } else if (randomNumber == 5) {
-                        sink.error(new Exception("HOOPS"));
+                        sink.error(new Exception("HOOPS ERROR!"));
                     } else {
                         sink.next(randomNumber);
                     }
