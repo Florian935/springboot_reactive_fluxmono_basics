@@ -5,6 +5,7 @@ import com.florian935.basicsfluxmono.doOn.DoOnError;
 import com.florian935.basicsfluxmono.doOn.DoOnNext;
 import com.florian935.basicsfluxmono.doOn.DoOnWrapper;
 import com.florian935.basicsfluxmono.empty.EmptyWrapper;
+import com.florian935.basicsfluxmono.error.ErrorWrapper;
 import com.florian935.basicsfluxmono.map.MapWrapper;
 import com.florian935.basicsfluxmono.source.FluxGenerator;
 import com.florian935.basicsfluxmono.source.SourceWrapper;
@@ -26,6 +27,7 @@ public class FluxmonoApplication {
 	private final DoOnWrapper doOnWrapper;
 	private final MapWrapper mapWrapper;
 	private final EmptyWrapper emptyWrapper;
+	private final ErrorWrapper errorWrapper;
 
 	public static void main(String[] args) {
 		SpringApplication.run(FluxmonoApplication.class, args);
@@ -33,6 +35,6 @@ public class FluxmonoApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void init() {
-		emptyWrapper.switchIfEmpty().switchIfEmpty();
+		errorWrapper.onErrorResume().onErrorResumeConcreteUseCaseHttpResponse();
 	}
 }
