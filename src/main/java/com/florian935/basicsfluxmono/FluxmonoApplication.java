@@ -22,7 +22,7 @@ public class FluxmonoApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void init() {
-		basicGenerator();
+		basicGeneratorWithError();
 	}
 
 	private void basicGenerator() {
@@ -37,12 +37,10 @@ public class FluxmonoApplication {
 	private void basicGeneratorWithError() {
 		final Flux<Integer> generator = Flux
 				.<Integer>generate(sink -> {
-					final int randomNumber = random.nextInt(10);
+					final int randomNumber = random.nextInt(100);
 					if (randomNumber != 5) {
-						System.out.println("T==============================>");
 						sink.next(randomNumber);
 					} else {
-						System.out.println("TOTOTOTOTOTOTOTOTOTOTOTOTO");
 						sink.error(new Exception("HOOPS"));
 					}
 				})
