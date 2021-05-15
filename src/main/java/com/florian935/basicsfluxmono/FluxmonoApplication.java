@@ -4,6 +4,7 @@ import com.florian935.basicsfluxmono.doOn.DoOnComplete;
 import com.florian935.basicsfluxmono.doOn.DoOnError;
 import com.florian935.basicsfluxmono.doOn.DoOnNext;
 import com.florian935.basicsfluxmono.doOn.DoOnWrapper;
+import com.florian935.basicsfluxmono.map.MapWrapper;
 import com.florian935.basicsfluxmono.source.FluxGenerator;
 import com.florian935.basicsfluxmono.source.SourceWrapper;
 import com.florian935.basicsfluxmono.transform.FluxHandle;
@@ -22,6 +23,7 @@ public class FluxmonoApplication {
 	private final SourceWrapper sourceWrapper;
 	private final FluxHandle fluxHandle;
 	private final DoOnWrapper doOnWrapper;
+	private final MapWrapper mapWrapper;
 
 	public static void main(String[] args) {
 		SpringApplication.run(FluxmonoApplication.class, args);
@@ -29,6 +31,6 @@ public class FluxmonoApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void init() {
-		sourceWrapper.fluxJust().just();
+		mapWrapper.switchMap().switchMap();
 	}
 }
