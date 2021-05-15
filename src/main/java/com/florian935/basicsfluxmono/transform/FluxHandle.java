@@ -15,7 +15,7 @@ import static java.time.Duration.ofMillis;
 public class FluxHandle {
 
     public void handle() {
-        var stream = Flux.just(1, 2, 3, 4, 5)
+        final var stream = Flux.just(1, 2, 3, 4, 5)
                 .handle((value, sink) -> sink.next(value + 10))
                 .delayElements(ofMillis(1_000));
 
@@ -23,7 +23,7 @@ public class FluxHandle {
     }
 
     public void handleWithError() {
-        var stream = Flux.just(1, 2, 3, 4, 5)
+        final var stream = Flux.just(1, 2, 3, 4, 5)
                 .handle((value, sink) -> {
                     if (value == 3) {
                         sink.error(new Exception("HOOPS ERROR!"));
@@ -38,7 +38,7 @@ public class FluxHandle {
     public void handleWithCompleteOrError() {
         final Random random = new Random();
 
-        var stream = Flux.just(1, 2, 3, 4, 5)
+        final var stream = Flux.just(1, 2, 3, 4, 5)
                 .handle((value, sink) -> {
                     final int randomNumber = random.nextInt(10);
                     if (randomNumber == 3) {
