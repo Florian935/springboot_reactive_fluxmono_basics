@@ -29,8 +29,6 @@ public class FluxmonoApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void init() {
-		sourceWrapper.fluxGenerator().generator();
+		sourceWrapper.fluxJust().just();
 	}
-
-
 }
