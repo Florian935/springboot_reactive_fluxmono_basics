@@ -10,12 +10,12 @@ import org.springframework.context.annotation.Configuration;
 public class SourceWrapper {
 
     @Bean
-    public FluxGenerator fluxGenerator() {
-        return new FluxGenerator();
+    public Generator fluxGenerator() {
+        return new Generator();
     }
 
     @Bean
-    public FluxJust fluxJust() {
-        return new FluxJust();
+    public Just fluxJust() {
+        return new Just();
     }
 }

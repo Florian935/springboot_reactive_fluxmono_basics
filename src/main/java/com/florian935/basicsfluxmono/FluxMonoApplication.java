@@ -19,7 +19,7 @@ import org.springframework.context.event.EventListener;
  */
 @SpringBootApplication
 @RequiredArgsConstructor
-public class FluxmonoApplication {
+public class FluxMonoApplication {
 	private final SourceWrapper sourceWrapper;
 	private final TransformWrapper transformWrapper;
 	private final DoOnWrapper doOnWrapper;
@@ -30,11 +30,11 @@ public class FluxmonoApplication {
 	private final FilterWrapper filterWrapper;
 
 	public static void main(String[] args) {
-		SpringApplication.run(FluxmonoApplication.class, args);
+		SpringApplication.run(FluxMonoApplication.class, args);
 	}
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void init() {
-		transformWrapper.buffer().bufferWithBufferingTimeSpanAndOpenBufferEvery_timeSpanEqualToOpenBuffer_exactBuffer();
+		transformWrapper.buffer().bufferWhen();
 	}
 }

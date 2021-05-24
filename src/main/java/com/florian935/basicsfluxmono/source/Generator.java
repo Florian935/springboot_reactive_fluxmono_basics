@@ -10,7 +10,7 @@ import static java.time.Duration.ofMillis;
 /**
  * @author florian935
  */
-public class FluxGenerator {
+public class Generator {
     final Random random = new Random();
 
     public void generator() {

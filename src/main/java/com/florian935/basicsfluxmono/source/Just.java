@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 /**
  * @author florian935
  */
-public class FluxJust {
+public class Just {
 
     public void just() {
         final Flux<Character> stream = Flux.just('a', 'b', 'c', 'd');
