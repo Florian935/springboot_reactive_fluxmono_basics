@@ -3,7 +3,6 @@ package com.florian935.basicsfluxmono.transform;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 
-import java.time.Duration;
 import java.util.Random;
 
 import static java.time.Duration.ofMillis;
@@ -11,8 +10,7 @@ import static java.time.Duration.ofMillis;
 /**
  * @author florian935
  */
-@Component
-public class FluxHandle {
+public class Handle {
 
     public void handle() {
         final var stream = Flux.just(1, 2, 3, 4, 5)

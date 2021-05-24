@@ -9,7 +9,7 @@ import static java.time.Duration.ofMillis;
  * @author florian935
  */
 public class ZipWith {
-    public void zip() {
+    public void zipWith() {
         final Flux<Long> interval = Flux.interval(ofMillis(1_000));
         final Flux<String> stream = Flux.just("A", "B", "C")
                 .repeat()
@@ -23,7 +23,7 @@ public class ZipWith {
         return new StringBuilder(tuple2.getT1()).append(tuple2.getT2()).toString();
     }
 
-    public void zipWithintegratedOutput() {
+    public void zipWithIntegratedOutput() {
         final Flux<Long> interval = Flux.interval(ofMillis(1_000));
         final Flux<String> stream = Flux.just("A", "B", "C")
                 .repeat()
