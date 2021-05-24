@@ -35,6 +35,6 @@ public class FluxMonoApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void init() {
-		transformWrapper.buffer().bufferWhen();
+		transformWrapper.buffer().bufferWhile();
 	}
 }

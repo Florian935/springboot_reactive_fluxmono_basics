@@ -139,6 +139,13 @@ public class Buffer {
         stream.subscribe(System.out::println);
     }
 
+    public void bufferWhile() {
+        final Flux<List<Integer>> stream = Flux.just(1, 2, 3, 4, 5, 6, 3, 7, 8, 9, 10, 11, 12, 3, 13, 14, 15)
+                .bufferWhile(value -> value != 3);
+
+        stream.subscribe(System.out::println);
+    }
+
     private Stream<Employee> getEmployees() {
         return Stream.of(
                 new Employee("toto", 10),
