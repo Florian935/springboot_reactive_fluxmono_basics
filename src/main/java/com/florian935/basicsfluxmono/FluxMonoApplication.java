@@ -6,6 +6,7 @@ import com.florian935.basicsfluxmono.error.ErrorWrapper;
 import com.florian935.basicsfluxmono.filter.FilterWrapper;
 import com.florian935.basicsfluxmono.fusion.FusionWrapper;
 import com.florian935.basicsfluxmono.map.MapWrapper;
+import com.florian935.basicsfluxmono.share.ShareWrapper;
 import com.florian935.basicsfluxmono.source.SourceWrapper;
 import com.florian935.basicsfluxmono.transform.TransformWrapper;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +29,7 @@ public class FluxMonoApplication {
 	private final ErrorWrapper errorWrapper;
 	private final FusionWrapper fusionWrapper;
 	private final FilterWrapper filterWrapper;
+	private final ShareWrapper shareWrapper;
 
 	public static void main(String[] args) {
 		SpringApplication.run(FluxMonoApplication.class, args);
@@ -35,6 +37,6 @@ public class FluxMonoApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void init() {
-		transformWrapper.buffer().bufferWhile();
+		shareWrapper.cache().cache();
 	}
 }
