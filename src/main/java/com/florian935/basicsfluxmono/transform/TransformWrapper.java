@@ -20,4 +20,9 @@ public class TransformWrapper {
     public Buffer buffer() {
         return new Buffer();
     }
+
+    @Bean
+    public Collect collect() {
+        return new Collect();
+    }
 }

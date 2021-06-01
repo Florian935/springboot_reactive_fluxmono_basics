@@ -37,6 +37,6 @@ public class FluxMonoApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void init() {
-		shareWrapper.cache().cache();
+		transformWrapper.collect().collect();
 	}
 }
