@@ -37,6 +37,6 @@ public class FluxMonoApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void init() {
-		transformWrapper.collect().collectWithBiConsumer();
+		transformWrapper.collectList().collectList();
 	}
 }

@@ -25,4 +25,7 @@ public class TransformWrapper {
     public Collect collect() {
         return new Collect();
     }
+
+    @Bean
+    public CollectList collectList() { return new CollectList(); }
 }
