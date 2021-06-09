@@ -21,4 +21,9 @@ public class FusionWrapper {
 
     @Bean
     public CombineLatest combineLatest() { return new CombineLatest(); }
+
+    @Bean
+    public Concat concat() {
+        return new Concat();
+    }
 }

@@ -37,6 +37,6 @@ public class FluxMonoApplication {
 
     @EventListener(ApplicationReadyEvent.class)
     private void init() {
-        fusionWrapper.combineLatest().combineLatest();
+        fusionWrapper.concat().concatPublisherOfPublisher();
     }
 }
