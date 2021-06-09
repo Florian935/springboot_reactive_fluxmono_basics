@@ -37,6 +37,6 @@ public class FluxMonoApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	private void init() {
-		transformWrapper.collectMap().collectMapWithValueExtractor();
+		transformWrapper.collectMap().collectMapWithSupplier();
 	}
 }
