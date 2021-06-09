@@ -37,6 +37,6 @@ public class FluxMonoApplication {
 
     @EventListener(ApplicationReadyEvent.class)
     private void init() {
-        fusionWrapper.concat().concatPublisherOfPublisher();
+        fusionWrapper.concat().concatFromIterable();
     }
 }

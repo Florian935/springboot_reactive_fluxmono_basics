@@ -14,7 +14,7 @@
 	<name>basicsfluxmono</name>
 	<description>Demo project for Spring Boot Reactor Flux and Mono basics</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>16</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
