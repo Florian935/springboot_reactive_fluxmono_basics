@@ -18,4 +18,7 @@ public class FusionWrapper {
     public ZipWith zipWith() {
         return new ZipWith();
     }
+
+    @Bean
+    public CombineLatest combineLatest() { return new CombineLatest(); }
 }
