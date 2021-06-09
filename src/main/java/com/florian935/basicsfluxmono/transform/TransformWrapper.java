@@ -35,4 +35,9 @@ public class TransformWrapper {
 
     @Bean
     public CollectMultiMap collectMultiMap() { return new CollectMultiMap(); }
+
+    @Bean
+    public CollectSortedList collectSortedList() {
+        return new CollectSortedList();
+    }
 }

@@ -21,22 +21,22 @@ import org.springframework.context.event.EventListener;
 @SpringBootApplication
 @RequiredArgsConstructor
 public class FluxMonoApplication {
-	private final SourceWrapper sourceWrapper;
-	private final TransformWrapper transformWrapper;
-	private final DoOnWrapper doOnWrapper;
-	private final MapWrapper mapWrapper;
-	private final EmptyWrapper emptyWrapper;
-	private final ErrorWrapper errorWrapper;
-	private final FusionWrapper fusionWrapper;
-	private final FilterWrapper filterWrapper;
-	private final ShareWrapper shareWrapper;
+    private final SourceWrapper sourceWrapper;
+    private final TransformWrapper transformWrapper;
+    private final DoOnWrapper doOnWrapper;
+    private final MapWrapper mapWrapper;
+    private final EmptyWrapper emptyWrapper;
+    private final ErrorWrapper errorWrapper;
+    private final FusionWrapper fusionWrapper;
+    private final FilterWrapper filterWrapper;
+    private final ShareWrapper shareWrapper;
 
-	public static void main(String[] args) {
-		SpringApplication.run(FluxMonoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(FluxMonoApplication.class, args);
+    }
 
-	@EventListener(ApplicationReadyEvent.class)
-	private void init() {
-		transformWrapper.collectMultiMap().collectMultiMapWithSupplier();
-	}
+    @EventListener(ApplicationReadyEvent.class)
+    private void init() {
+        transformWrapper.collectSortedList().collectSortedListWithComparator();
+    }
 }
